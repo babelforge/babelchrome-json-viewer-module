@@ -1,0 +1,80 @@
+{
+  "id": "babelforge.json-viewer",
+  "name": "JSON Viewer",
+  "version": "1.0.0",
+  "requirements": {
+    "php": ">=8.4"
+  },
+  "description": "Renders local and remote JSON documents with andypf/json-viewer.",
+  "type": "viewer",
+  "enabled": true,
+  "supports": [
+    "file-viewer"
+  ],
+  "runtime": {
+    "type": "web",
+    "entrypoint": "public/index.php"
+  },
+  "entrypoint": "public/index.php",
+  "routes": [
+    {
+      "scheme": "babelchrome",
+      "host": "json",
+      "handler": "json"
+    }
+  ],
+  "fileTypes": [
+    "json"
+  ],
+  "file-type-handler": {
+    "fileTypes": [
+      "json"
+    ]
+  },
+  "fileNameContains": [],
+  "hooks": [
+    "url.resolve",
+    "file.open.resolve",
+    "address.badge.resolve",
+    "context-menu.build",
+    "settings.section.register",
+    "tab.title.resolve"
+  ],
+  "permissions": [
+    "read-local-files",
+    "serve-assets",
+    "network-fetch",
+    "native-open-file",
+    "native-reveal-file",
+    "context-menu",
+    "settings"
+  ],
+  "menuItems": [
+    {
+      "id": "json.open-source-file",
+      "label": "Open Source File",
+      "hook": "context-menu.build",
+      "route": "babelchrome://json/action/open-source-file",
+      "contexts": [
+        "json.local-file"
+      ]
+    },
+    {
+      "id": "json.reveal-in-finder",
+      "label": "Reveal in Finder",
+      "hook": "context-menu.build",
+      "route": "babelchrome://json/action/reveal-in-finder",
+      "contexts": [
+        "json.local-file"
+      ]
+    }
+  ],
+  "badge": {
+    "text": "JSON",
+    "textColor": "#ffffff",
+    "backgroundColor": "#8250df"
+  },
+  "settings": {
+    "route": "babelchrome://settings#json-viewer"
+  }
+}

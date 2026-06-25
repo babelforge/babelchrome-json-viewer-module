@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ view.title }}{% endblock %}
+
+{% block head %}
+    <style>{{ view.stylesheetContent|raw }}</style>
+    <script type="application/json" id="json-source">{{ view.documentJson|raw }}</script>
+    <script>{{ view.vendorScriptContent|raw }}</script>
+{% endblock %}
+
+{% block body %}
+    {% include '@BabelChromeViewerKit/header.html.twig' with {title: view.title, openWith: view.openWithView} %}
+    <main class="json-viewer"
+          data-json-viewer
+          data-source-id="{{ view.sourceId }}"
+          data-auto-refresh="{{ view.autoRefreshEnabled ? '1' : '0' }}"
+          data-last-modified="{{ view.lastModified ?? '' }}">
+        <andypf-json-viewer
+            id="json-viewer-root"
+            indent="2"
+            expanded="2"
+            theme="github"
+            show-data-types="true"
+            show-toolbar="true"
+            show-copy="true"
+            show-size="true"
+            expand-icon-type="arrow"
+            expand-empty="false">{{ view.documentJson|raw }}</andypf-json-viewer>
+    </main>
+    <script>{{ view.scriptContent|raw }}</script>
+{% endblock %}
