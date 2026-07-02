@@ -1,7 +1,7 @@
 {
   "id": "babelforge.json-viewer",
   "name": "JSON Viewer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "requirements": {
     "php": ">=8.4"
   },
@@ -75,6 +75,6 @@
     "backgroundColor": "#8250df"
   },
   "settings": {
-    "route": "babelchrome://settings#json-viewer"
+    "route": "babelchrome://settings/babelforge.json-viewer"
   }
 }
