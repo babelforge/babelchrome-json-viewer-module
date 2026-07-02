@@ -1,7 +1,7 @@
 {
   "id": "babelforge.json-viewer",
   "name": "JSON Viewer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "requirements": {
     "php": ">=8.4"
   },
@@ -37,7 +37,6 @@
     "file.open.resolve",
     "address.badge.resolve",
     "context-menu.build",
-    "settings.section.register",
     "tab.title.resolve"
   ],
   "permissions": [
@@ -46,8 +45,7 @@
     "network-fetch",
     "native-open-file",
     "native-reveal-file",
-    "context-menu",
-    "settings"
+    "context-menu"
   ],
   "menuItems": [
     {
@@ -73,8 +71,5 @@
     "text": "JSON",
     "textColor": "#ffffff",
     "backgroundColor": "#8250df"
-  },
-  "settings": {
-    "route": "babelchrome://settings/babelforge.json-viewer"
   }
 }
